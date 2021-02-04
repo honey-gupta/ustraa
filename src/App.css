@@ -2,7 +2,27 @@
   text-align: center;
 }
 
-.tab-root {
+.bg-image {
+  background-color: brown;
+}
+.MuiAvatar-root {
+  position: absolute !important;
+  border-radius: 0% !important;
+  width: 110px !important;
+  z-index: 1 !important;
+}
+
+.MuiTabs-flexContainer {
   display: flex;
-  width: '100%';
+  justify-content: space-evenly !important;
+}
+
+.MuiTabs-scrollable {
+  overflow-x: scroll;
+  align-self: center !important;
+}
+
+.label-style {
+  z-index: 2;
+  color: white;
 }
