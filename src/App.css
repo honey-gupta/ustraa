@@ -1,15 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
-.bg-image {
-  background-color: brown;
+.label-style {
+  z-index: 2;
+  color: white;
 }
+
 .MuiAvatar-root {
   position: absolute !important;
-  border-radius: 0% !important;
-  width: 110px !important;
+  border-radius: 5% !important;
   z-index: 1 !important;
+  width: auto !important;
+}
+
+.MuiButton-text {
+  padding: 40px 12px !important;
 }
 
 .MuiTabs-flexContainer {
@@ -21,8 +33,107 @@
   overflow-x: scroll;
   align-self: center !important;
 }
+.heading {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
 
-.label-style {
-  z-index: 2;
-  color: white;
+@media only screen and (max-width: 750px) {
+  .MuiAvatar-root {
+    position: absolute !important;
+    border-radius: 5% !important;
+    z-index: 1 !important;
+    width: auto !important;
+  }
+  .MuiButton-text {
+    padding: 20px 12px !important;
+  }
+  .MuiTabs-flexContainer {
+    display: flex;
+    justify-content: space-evenly !important;
+  }
+  .MuiTabs-scrollable {
+    overflow-x: scroll;
+    display: flex !important;
+  }
+  .MultiTabs-scroller {
+    flex: 1 1 auto;
+    display: flex !important;
+    position: relative;
+    white-space: nowrap;
+  }
+  .tab-image {
+    margin: 10px;
+  }
+  .heading {
+    display: flex;
+    justify-content: start;
+    margin: 10px;
+  }
+  .product-container {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    padding: 5px;
+    border: 0.1px solid rgb(233, 233, 233);
+  }
+  .product-image {
+    display: flex;
+    margin: 10px;
+    background-color: brown;
+  }
+  .product-details {
+    display: flex;
+    /* background-color: darkblue; */
+    margin: 10px;
+    /* color: white; */
+    flex-direction: column;
+    width: -webkit-fill-available;
+  }
+  .product-name {
+    font-size: small;
+    display: flex;
+    text-align: left;
+  }
+  .name-rating {
+    display: flex;
+    justify-content: space-between;
+  }
+  .product-rating {
+    /* margin: 2px; */
+  }
+  .product-weight {
+    text-align: left;
+    font-size: 9px;
+    margin: 5px;
+    padding: 2px;
+    font-weight: 100;
+  }
+  .prices {
+    display: flex;
+  }
+  .actual-price {
+    align-items: center;
+    font-size: x-small;
+    padding: 3px 15px;
+    text-decoration: line-through;
+  }
+  .final-price {
+    font-weight: bolder;
+  }
+  .cart-button {
+    display: flex;
+    text-align: left;
+    padding: 5px 0px;
+  }
+  .MuiButton-contained {
+    background-color: rgb(74, 218, 69) !important;
+  }
+  .no-data {
+    display: flex;
+    justify-content: center;
+    height: 75vh;
+    align-items: center;
+  }
 }
