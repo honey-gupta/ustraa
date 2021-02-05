@@ -49,6 +49,9 @@
   .MuiButton-text {
     padding: 20px 12px !important;
   }
+  .Mui-selected {
+    /* opacity: 0.1 !important; */
+  }
   .MuiTabs-flexContainer {
     display: flex;
     justify-content: space-evenly !important;
@@ -62,6 +65,9 @@
     display: flex !important;
     position: relative;
     white-space: nowrap;
+  }
+  .MuiButton-contained {
+    background-color: #4fcf64 !important;
   }
   .tab-image {
     margin: 10px;
@@ -127,13 +133,40 @@
     text-align: left;
     padding: 5px 0px;
   }
-  .MuiButton-contained {
-    background-color: rgb(74, 218, 69) !important;
-  }
   .no-data {
     display: flex;
     justify-content: center;
     height: 75vh;
     align-items: center;
+  }
+  .footer {
+    display: flex;
+  }
+  .showing-for {
+    display: flex;
+    width: 75%;
+    align-self: center;
+    justify-content: space-around;
+  }
+  .text-style {
+    font-size: xx-small;
+    display: flex;
+    font-size: xx-small;
+    display: flex;
+    align-items: center;
+  }
+  .change-text {
+    display: flex;
+    font-size: xx-small;
+  }
+  .view-more {
+    display: flex;
+    font-size: xx-small;
+  }
+  .cat-style {
+    font-weight: bolder;
+    font-size: small;
+    display: flex;
+    padding-left: 10px;
   }
 }

@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button'
 
 
 function ProductCard({ list }) {
-    console.log(list, 'list')
+    // console.log(list, 'list')
     return (
         <>
             {list.map((product) => {
@@ -16,7 +16,7 @@ function ProductCard({ list }) {
                         <div className='product-details'>
                             <div className='name-rating'>
                                 <span className='product-name'>{product.name}</span>
-                                <span className='product-rating'>{product.rating ? `${product.rating}⭐` : ''} </span>
+                                <span className='product-rating'>{product.rating ? `${product.rating}★` : ''} </span>
                             </div>
                             <span className='product-weight'>{product.weight ? `(${product.weight} ${product.weight_unit})` : ''}</span>
                             <div className='prices'>

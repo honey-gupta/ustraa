@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Tab from '@material-ui/core/Tab';
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -6,12 +6,11 @@ import axios from 'axios'
 import ProductCard from './ProductCard';
 
 function TabImage({ props, parentCallback }) {
-    console.log('PROPSS', props)
+    // console.log('PROPSS', props)
     const [list, setList] = useState([])
 
     const getProductDetails = (cat_id) => {
-        console.log('WOOOOOOWWWWWWWWWWWWWWWWWW', cat_id)
-        parentCallback(cat_id)
+        parentCallback(cat_id);
     }
     return (
         <>
