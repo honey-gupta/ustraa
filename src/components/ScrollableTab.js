@@ -18,7 +18,6 @@ function ScrollableTab() {
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleCallback = (cat_id) => {
-        console.log('CATid', cat_id)
         setCat_Id(cat_id)
         console.log(categories.filter((categories) => {
             if (categories.category_id === cat_id) {
