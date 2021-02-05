@@ -11,7 +11,7 @@ function ProductCard({ list }) {
                 return (
                     <div className='product-container'>
                         <div className='product-image'>
-                            <img src={product.image_urls.x120} />
+                            <img alt='prod-img' src={product.image_urls.x120} />
                         </div>
                         <div className='product-details'>
                             <div className='name-rating'>

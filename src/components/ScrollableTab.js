@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import '../App.css';
@@ -10,14 +9,7 @@ import axios from 'axios'
 import TabImage from './TabImage'
 import ProductCard from './ProductCard';
 
-const useStyles = makeStyles(() => ({
-    root: {
-        // flexGrow: 1,
-        // width: '100%',
-    },
-}));
 function ScrollableTab() {
-    const classes = useStyles();
     const [categories, setCategories] = useState([])
     const [list, setList] = useState([])
     const [cat_id, setCat_Id] = useState(226)
@@ -25,36 +17,28 @@ function ScrollableTab() {
     const [viewMore, setViewMore] = useState(false)
     const [anchorEl, setAnchorEl] = useState(null);
 
-    let initialRenderList = []
     const handleCallback = (cat_id) => {
-        // console.log('CATid', cat_id)
+        console.log('CATid', cat_id)
         setCat_Id(cat_id)
         console.log(categories.filter((categories) => {
             if (categories.category_id === cat_id) {
                 setCat_Name(categories.category_name)
+                setViewMore(false)
+                setAnchorEl(null);
             }
+            return true
         }
         ))
-        // axios.get(`https://backend.ustraa.com/rest/V1/api/catalog/v1.0.1?category_id=${cat_id}`)
-        //     .then((response) => {
-        //         console.log(response, 'lol');
-        //         if (response.data.products.length > 3) {
-        //             initialRenderList = response.data.products.slice(0, 3)
-
-        //             setList(initialRenderList)
-        //         } else {
-        //             setList(response.data.products);
-        //             setViewMore(false)
-        //         }
-        //     })
     }
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
     const handleClose = () => {
+        console.log('HEREEE')
         setAnchorEl(null);
     };
+
     const showAll = () => {
         setViewMore(true)
     }
@@ -71,10 +55,10 @@ function ScrollableTab() {
     }, [])
     useEffect(() => {
         // setCat_Id(cat_id)
+        let initialRenderList = []
         axios.get(`https://backend.ustraa.com/rest/V1/api/catalog/v1.0.1?category_id=${cat_id}`)
             .then((response) => {
-                // console.log(response, 'lol');
-                if (response.data.products.length > 3 && !viewMore) {
+                if (response && response.data && response.data.products && response.data.products.length > 3 && !viewMore) {
                     initialRenderList = response.data.products.slice(0, 3)
 
                     setList(initialRenderList)
@@ -85,7 +69,7 @@ function ScrollableTab() {
             })
     }, [cat_id, viewMore])
     return (
-        <div className={classes.root}>
+        <div>
             <h2 className='heading'> Our Products </h2>
             <AppBar position="static" color="default">
                 <Tabs
@@ -113,25 +97,25 @@ function ScrollableTab() {
                         <span className='change-text' onClick={handleClick}>
                             change
                     </span>
-                        <Menu
-                            id="simple-menu"
-                            anchorEl={anchorEl}
-                            keepMounted
-                            open={Boolean(anchorEl)}
-                            onClose={handleClose}
-                        >
-                            {categories && categories.length && categories.map((categ) => {
-                                // console.log(categ, '!QW#$%%%%%%%%%%%%%^&*')
-                                <MenuItem onClick={handleClose}>{categ.category_name}</MenuItem>
 
-                            })}
-                        </Menu>
+
                     </div>
                     <div className='view-more'>
                         {!viewMore ? <span onClick={showAll}> [+] View More </span> : <span onClick={showLess}> [-] View Less</span>}
                     </div>
                 </div> : ''
             }
+            <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+            >
+                {categories && categories.length && categories.map((categ) => {
+                    return <MenuItem onClick={() => handleCallback(categ.category_id)}>{categ.category_name ? categ.category_name : ''}</MenuItem>
+                })}
+            </Menu>
         </div >
     )
 }
