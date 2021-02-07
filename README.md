@@ -10,7 +10,7 @@ To get a clone of this repository (https://github.com/honey-gupta/ustraa) on you
 
 #### Setup Local Environment
 
-In package.json file you will find below mentioned dependances
+In package.json file you will find below mentioned dependencies
 
 
 axios 0.21.1,
